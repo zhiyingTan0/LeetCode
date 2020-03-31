@@ -1,0 +1,12 @@
+# Write your MySQL query statement below
+# Do the projection first, then the selection
+
+SELECT FirstName, LastName, City, State FROM
+(
+ SELECT PersonId, City, State
+ FROM Address 
+)a
+RIGHT OUTER JOIN
+Person p
+ON p.PersonId = a.PersonId ;
+
