@@ -1,0 +1,13 @@
+SELECT MAX(t.s) SecondHighestSalary 
+
+FROM Employee left outer join 
+(
+    SELECT MAX(Salary) s FROM Employee 
+    where Salary < 
+    (
+        SELECT MAX(Salary) 
+        FROM Employee
+    )
+)t
+on t.s=Employee.Salary
+
