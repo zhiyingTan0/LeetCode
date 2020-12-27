@@ -1,0 +1,24 @@
+def find_substring(s:str):
+    acc=0
+    for i in range(len(s)):
+        acc=acc+1
+        L=i
+        R=i+1
+        while L>=0 and R<len(s) and s[L]==s[R]:
+            L=L-1
+            R=R+1
+            acc=acc+1
+        L=i-1
+        R=i+1
+        while L>=0 and R < len(s) and s[L]==s[R]:
+            L=L-1
+            R=R+1
+            acc=acc+1
+    return acc
+            
+            
+        
+
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        return find_substring(s)
